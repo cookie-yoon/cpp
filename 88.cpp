@@ -1,4 +1,7 @@
 #include <iostream>
+#include <string>
+// I wonder the reason it works without '#include <string>'
+
 using namespace std;
 
 int main(){
