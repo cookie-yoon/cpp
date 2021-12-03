@@ -1,0 +1,106 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Account{
+	private:
+		string holder;
+		int number;
+		int balance;
+	
+	public:
+	
+	Account();
+	
+	void open(string name, int account, int amount);	
+	void deposit(int account, int amount);
+	void withdraw(int account, int amount);
+	void print();
+	void transfer(int account, int account2, int amount);
+	void inquireByNumber(int account);
+	void inquireByName(string name);
+
+};
+
+Account::Account(){
+	holder = " ";
+	number = 0;
+	balance = 0;
+}
+
+
+void Account::open(string name, int account, int amount){
+	holder = name;
+	number = account;
+	balance = amount;
+}
+
+void Account::deposit(int account, int amount){
+	balance += amount;
+}
+
+void Account::withdraw(int account, int amount){
+	if(balance < amount)
+		cout <<  "Error2";
+	else
+		balance -= amount;
+}
+
+void Account::transfer(int account, int account2, int amount){
+	if(balance < amount){
+		cout << "Error2";
+	}
+	else{
+		balance -= amount;
+		balance += amount;
+	}
+}
+	
+void Account::inquireByNumber(int account){
+	cout << number << ' ' << holder << ' ' << balance;
+}
+
+void Account::inquireByName(string name){
+	cout << number << ' ' << holder << ' ' << balance;
+}
+	
+
+int main(){
+	Account bank;
+	string command;
+	string name;
+	int account, account2, amount;
+	
+	while(1){
+		cin >> command;
+		
+		if(command == "new"){
+			cin >> name >> account >> amount;
+			bank.open(name, account, amount);
+		}
+		else if(command == "deposit"){
+			cin >> account >> amount;
+			bank.deposit(account, amount);
+		}
+		else if(command == "withdraw"){
+			cin >> account >> amount;
+			bank.withdraw(account, amount);
+		}
+		else if(command == "transfer"){
+			cin >> account >> account2 >> amount;
+			bank.transfer(account, account2, amount);
+		}
+		else if(command == "inquireByNumber"){
+			cin >> account;
+			bank.inquireByNumber(account);
+		}
+		else if(command == "inquireByName"){
+			cin >> name;
+			bank.inquireByName(name);
+		}
+
+		else if(command == "exit"){
+			break;
+		}
+	}
+}
