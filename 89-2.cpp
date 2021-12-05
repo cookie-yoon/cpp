@@ -9,9 +9,9 @@ int main(){
   cout << "Insert the string. >> ";
   getline(cin, text);
 
-  for(int i = 0; i < text.length() + 1; i++){
-    for(int j = 0; j < i; j++)
-      cout << text[j];
+  for(int i = 0; i < text.length(); i++){ // str.length() returns length of the string.
+    for(int j = 0; j <= i; j++) // j < **=** i
+      cout << text[j]; // slicing in string available
     cout << endl;
   }
 }
