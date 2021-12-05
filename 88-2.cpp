@@ -1,17 +1,19 @@
 #include <iostream>
+#include <cstring>
+
 using namespace std;
 
 int main(){
-  char input[3];
-  
-  for(;;){
+  char input[100];
+  char key[] = "yes";
+
+  while(1){
     cout << "Insert 'yes' to quit. >> ";
-    cin.getline(input, 3);
-    if(input == "yes")
+    cin.getline(input, 100);
+
+    if(strcmp(input, key) == 0) // strcmp(charArr1, charArr2) returns 0 in case they're same. In others, it does depending on ascii code.
       break;
   }
   
   cout << "Quit the program...";
 }
-
-// have to be edited
