@@ -34,3 +34,5 @@ int calc(int a, int b, int x){
     cout << "Error: undeclared operator\n\tThe result will be '0' but not is actually." << endl;
     return 0;
 }
+
+// ref: atoi(str) = int
